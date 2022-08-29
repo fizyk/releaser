@@ -1,0 +1,11 @@
+name: 'Release your project'
+description: 'Perform project release with the use of bump2version and towncrier'
+inputs:
+  version:  # id of input
+    description: 'Version to bump to'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.version }}

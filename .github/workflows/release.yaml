@@ -1,0 +1,19 @@
+name: Test build docker
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release the project with"
+        required: true
+        type: string
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release thisp project
+        id: hello
+        uses: fizyk/releaser@main
+        with:
+          version: ${{ inputs.environment }}
