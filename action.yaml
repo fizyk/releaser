@@ -18,8 +18,8 @@ runs:
       shell: bash
     - name: Configure
       run: |
-        git config --global user.name ${{ input.user }}
-        git config --global user.email ${{ input.email }}
+        git config --global user.name ${{ inputs.user }}
+        git config --global user.email ${{ inputs.email }}
       shell: bash
     - name: Set up Python 3.10
       uses: actions/setup-python@v4
