@@ -12,16 +12,6 @@ on:
         - patch
         - minor
         - major
-      user:
-        description: User committing
-        default: 'Grzegorz Śliwiński'
-        required: true
-        type: string
-      email:
-        description: Email of the user committing
-        default: 'example@fizyk.github.com'
-        required: true
-        type: string
 
 jobs:
   release:
@@ -32,3 +22,5 @@ jobs:
         uses: fizyk/releaser@main
         with:
           bump_part: ${{ inputs.bump_part }}
+          user: "Grzegorz Śliwiński"
+          email: "example@fizyk.github.com"
