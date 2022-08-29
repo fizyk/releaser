@@ -13,13 +13,13 @@ on:
         - minor
         - major
       user:
-        description: User commiting
-        default: "Grzegorz Śliwiński"
+        description: User committing
+        default: 'Grzegorz Śliwiński'
         required: true
         type: string
       email:
-        description: Email of the user commiting
-        default: "example@fizyk.github.com"
+        description: Email of the user committing
+        default: 'example@fizyk.github.com'
         required: true
         type: string
 
