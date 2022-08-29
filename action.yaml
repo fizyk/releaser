@@ -34,6 +34,6 @@ runs:
     - run: ls -l
       shell: bash
     - name: Bump
-      run: bumpversion --new-version ${{ inputs.version }} .
+      run: bumpversion ${{ inputs.bump_part }}
       shell: bash
 

@@ -3,16 +3,23 @@ name: Release
 on:
   workflow_dispatch:
     inputs:
-      version:
+      bump_part:
         description: "Version to release the project with"
         required: true
-        type: string
+        default: 'patch'
+        type: choice
+        options:
+        - patch
+        - minor
+        - major
       user:
-        description: "Grzegorz Śliwiński"
+        description: User commiting
+        default: "Grzegorz Śliwiński"
         required: true
         type: string
       email:
-        description: "example@fizyk.github.com"
+        description: Email of the user commiting
+        default: "example@fizyk.github.com"
         required: true
         type: string
 
@@ -24,4 +31,4 @@ jobs:
         id: hello
         uses: fizyk/releaser@main
         with:
-          version: ${{ inputs.environment }}
+          bump_part: ${{ inputs.bump_part }}
