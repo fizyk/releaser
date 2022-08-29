@@ -19,6 +19,9 @@ runs:
     - name: Install dependencies
       run: pip install -r ${{ github.action_path }}/requirements.txt
       shell: bash
+    - uses: actions/checkout@v3
+    - run: ls -l
+      shell: bash
     - name: Bump
       run: bumpversion --new-version ${{ inputs.version }} .
       shell: bash
