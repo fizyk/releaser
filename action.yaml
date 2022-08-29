@@ -1,8 +1,8 @@
 name: 'Release your project'
 description: 'Perform project release with the use of bump2version and towncrier'
 inputs:
-  version:  # id of input
-    description: 'Version to bump to'
+  bump_part:  # id of input
+    description: 'Version part to bump to'
     required: true
   user:  # id of input
     description: 'User name to commit with'
