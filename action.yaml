@@ -10,6 +10,10 @@ inputs:
   email:  # id of input
     description: 'User email to commit with'
     required: true
+outputs:
+  new-version:
+    desciription: Nex release version
+    value: ${{ steps.next-version.outputs.new-version }}
 runs:
   using: "composite"
   steps:
@@ -28,7 +32,8 @@ runs:
     - name: Install dependencies
       run: pip install -r ${{ github.action_path }}/requirements.txt
       shell: bash
-    - run: bumpversion --list patch
+    - id: next-version
+      run: ::set-output name=new-version::$(bump2version --dry-run --list {{ inputs.bump_part }} | grep <field name> | sed -r s,"^.*=",,)
       shell: bash
       # <- this will get the new version
     - uses: actions/checkout@v3
