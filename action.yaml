@@ -7,7 +7,8 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: echo Will create ${{ inputs.  version }}.
+    - name: Releaser 0.0.0
+      run: echo Will create ${{ inputs.version }}.
       shell: bash
     - name: Set up Python 3.10
       uses: actions/setup-python@v4
@@ -19,6 +20,6 @@ runs:
       run: pip install -r ${{ github.action_path }}/requirements.txt
       shell: bash
     - name: Bump
-      run: bumpversion --new-version ${{ inputs.version }}
+      run: bumpversion --new-version ${{ inputs.version }} .
       shell: bash
 
