@@ -12,7 +12,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Release thisp project
+      - name: Release this project
         id: hello
         uses: fizyk/releaser@main
         with:
