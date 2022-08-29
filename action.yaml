@@ -32,12 +32,9 @@ runs:
     - name: Install dependencies
       run: pip install -r ${{ github.action_path }}/requirements.txt
       shell: bash
+    - uses: actions/checkout@v3
     - id: next-version
       run: echo "::set-output name=new-version::$(bumpversion --dry-run --list ${{ inputs.bump_part }} | grep new_version= | sed -r s,\"^.*=\",,)"
-      shell: bash
-      # <- this will get the new version
-    - uses: actions/checkout@v3
-    - run: ls -l
       shell: bash
       # Here somewhere around fire towncrier
     - name: Bump
