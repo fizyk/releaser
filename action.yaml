@@ -12,7 +12,7 @@ inputs:
     required: true
 outputs:
   new-version:
-    desciription: Nex release version
+    description: Nex release version
     value: ${{ steps.next-version.outputs.new-version }}
 runs:
   using: "composite"
@@ -33,7 +33,7 @@ runs:
       run: pip install -r ${{ github.action_path }}/requirements.txt
       shell: bash
     - id: next-version
-      run: ::set-output name=new-version::$(bump2version --dry-run --list {{ inputs.bump_part }} | grep <field name> | sed -r s,"^.*=",,)
+      run: ::set-output name=new-version::$(bumpversion --dry-run --list {{ inputs.bump_part }} | grep new_version | sed -r s,"^.*=",,)
       shell: bash
       # <- this will get the new version
     - uses: actions/checkout@v3
