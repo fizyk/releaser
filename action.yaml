@@ -13,8 +13,11 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Releaser 0.0.0
-      run: echo Will create ${{ inputs.version }}.
+    - run: bumpversion --list patch
+      shell: bash
+      # <- this will get the new version
+    - name: Releaser 0.0.1
+      run: echo Will bump with ${{ inputs.bump_part }} part.
       shell: bash
     - name: Configure
       run: |
@@ -33,6 +36,7 @@ runs:
     - uses: actions/checkout@v3
     - run: ls -l
       shell: bash
+      # Here somewhere around fire towncrier
     - name: Bump
       run: bumpversion ${{ inputs.bump_part }}
       shell: bash
