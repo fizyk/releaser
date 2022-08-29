@@ -4,11 +4,22 @@ inputs:
   version:  # id of input
     description: 'Version to bump to'
     required: true
+  user:  # id of input
+    description: 'User name to commit with'
+    required: true
+  email:  # id of input
+    description: 'User email to commit with'
+    required: true
 runs:
   using: "composite"
   steps:
     - name: Releaser 0.0.0
       run: echo Will create ${{ inputs.version }}.
+      shell: bash
+    - name: Configure
+      run: |
+        git config --global user.name ${{ input.user }}
+        git config --global user.email ${{ input.email }}
       shell: bash
     - name: Set up Python 3.10
       uses: actions/setup-python@v4

@@ -7,6 +7,14 @@ on:
         description: "Version to release the project with"
         required: true
         type: string
+      user:
+        description: "Grzegorz Śliwiński"
+        required: true
+        type: string
+      email:
+        description: "example@fizyk.github.com"
+        required: true
+        type: string
 
 jobs:
   release:

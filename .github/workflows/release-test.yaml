@@ -13,3 +13,5 @@ jobs:
         uses: fizyk/releaser@main
         with:
           version: 0.0.1
+          user: "Grzegorz Śliwiński"
+          email: "example@fizyk.github.com"
