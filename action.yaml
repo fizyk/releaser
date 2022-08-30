@@ -37,7 +37,9 @@ runs:
       run: echo "::set-output name=new-version::$(bumpversion --dry-run --list ${{ inputs.bump_part }} | grep new_version= | sed -r s,\"^.*=\",,)"
       shell: bash
       # Here somewhere around fire towncrier
-    - name: Bump
+    - name: Bump to ${{ steps.next-version.outputs.new-version }}
       run: bumpversion ${{ inputs.bump_part }}
+      shell: bash
+    - run: git push --follow-tags
       shell: bash
 
