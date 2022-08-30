@@ -17,7 +17,7 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Releaser 0.0.0
+    - name: Releaser 0.0.1
       run: echo Will bump with ${{ inputs.bump_part }} part.
       shell: bash
     - name: Configure
