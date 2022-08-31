@@ -1,14 +1,19 @@
 name: 'Release your project'
 description: 'Perform project release with the use of bump2version and towncrier'
 inputs:
-  bump_part:  # id of input
+  bump_part:
     description: 'Version part to bump to'
     required: true
-  user:  # id of input
+  user:
     description: 'User name to commit with'
-    required: true
-  email:  # id of input
+    required: false
+    default: 'Github Action'
+  email:
     description: 'User email to commit with'
+    required: false
+    default: 'github-action@users.noreply.github.com'
+  token:
+    description: 'GitHub Token'
     required: true
 outputs:
   new-version:
@@ -24,6 +29,7 @@ runs:
       run: |
         git config --global user.name ${{ inputs.user }}
         git config --global user.email ${{ inputs.email }}
+        git config --global user.password ${{ inputs.token }}
       shell: bash
     - name: Set up Python 3.10
       uses: actions/setup-python@v4

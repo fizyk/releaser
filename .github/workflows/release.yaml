@@ -22,5 +22,4 @@ jobs:
         uses: fizyk/releaser@v0.0.1
         with:
           bump_part: ${{ inputs.bump_part }}
-          user: "Grzegorz Śliwiński"
-          email: "example@fizyk.github.com"
+          token: ${{ secrets.GITHUB_TOKEN }}
