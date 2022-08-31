@@ -29,7 +29,6 @@ runs:
       run: |
         git config --global user.name ${{ inputs.user }}
         git config --global user.email ${{ inputs.email }}
-        git config --global user.password ${{ inputs.token }}
       shell: bash
     - name: Set up Python 3.10
       uses: actions/setup-python@v4
@@ -39,6 +38,8 @@ runs:
       run: pip install -r ${{ github.action_path }}/requirements.txt
       shell: bash
     - uses: actions/checkout@v3
+      with:
+        token: ${{ inputs.token }}
     - id: next-version
       run: echo "::set-output name=new-version::$(bumpversion --dry-run --list ${{ inputs.bump_part }} | grep new_version= | sed -r s,\"^.*=\",,)"
       shell: bash
